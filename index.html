@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaulty AI - Build Your Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #F3F4F6; /* Slightly off-white for better readability */
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #3B82F6, #EC4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(90deg, #3B82F6, #EC4899);
+        }
+        .gradient-border {
+            border-image-slice: 1;
+            border-image-source: linear-gradient(90deg, #3B82F6, #EC4899);
+        }
+        .card-bg {
+            background-color: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .glow-effect {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.2), rgba(236, 72, 153, 0.1), transparent 60%);
+            transform: translate(-50%, -50%);
+            filter: blur(100px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        /* Simple spinner for demo */
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-left-color: #EC4899;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <div class="glow-effect"></div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-lg border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold gradient-text">Vaulty</a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#features" class="text-gray-300 hover:text-white transition-colors">Features</a>
+                <a href="#pricing" class="text-gray-300 hover:text-white transition-colors">Pricing</a>
+                <a href="#demo" class="text-gray-300 hover:text-white transition-colors">Demo</a>
+                <a href="#testimonials" class="text-gray-300 hover:text-white transition-colors">Testimonials</a>
+                <a href="#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a>
+            </nav>
+            <a href="#" class="hidden md:block px-5 py-2.5 text-sm font-semibold text-white rounded-lg gradient-bg hover:opacity-90 transition-opacity">
+                Get Started Now
+            </a>
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="#features" class="block text-gray-300 hover:text-white transition-colors">Features</a>
+            <a href="#pricing" class="block text-gray-300 hover:text-white transition-colors">Pricing</a>
+            <a href="#demo" class="block text-gray-300 hover:text-white transition-colors">Demo</a>
+            <a href="#testimonials" class="block text-gray-300 hover:text-white transition-colors">Testimonials</a>
+            <a href="#faq" class="block text-gray-300 hover:text-white transition-colors">FAQ</a>
+            <a href="#" class="block mt-2 w-full text-center px-5 py-2.5 text-sm font-semibold text-white rounded-lg gradient-bg hover:opacity-90 transition-opacity">
+                Get Started Now
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-32 pb-20 text-center relative overflow-hidden">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-tight">
+                    From <span class="gradient-text">Idea</span> to <span class="gradient-text">Empire</span>.
+                </h1>
+                <p class="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-400">
+                    Vaulty AI is your personal business strategist. We analyze the market, generate ideas, and build you a complete roadmap to success.
+                </p>
+                <div class="mt-10 flex justify-center items-center gap-4">
+                    <a href="#" class="px-8 py-3.5 text-base font-semibold text-white rounded-lg gradient-bg hover:scale-105 transition-transform transform">
+                        Start For Free
+                    </a>
+                    <a href="#features" class="px-8 py-3.5 text-base font-semibold text-gray-300 rounded-lg bg-gray-800/50 hover:bg-gray-800 transition-colors">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Features Section -->
+        <section id="features" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold">Tools that turn your vision into <span class="gradient-text">reality</span></h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-gray-400">
+                        Each feature is designed with one goal: to simplify your journey from the first idea to your first profit. Discover how Vaulty helps you at every step.
+                    </p>
+                </div>
+
+                <!-- Feature 1: Business Idea Generator -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div class="order-2 md:order-1">
+                        <div class="inline-flex items-center gap-3">
+                            <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
+                                <i data-lucide="lightbulb" class="text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">Business Idea Generator</h3>
+                        </div>
+                        <p class="mt-4 text-gray-400">
+                            Don't waste time guessing. Tell our AI about your passions, skills, and available capital. In seconds, you'll receive a list of personalized business proposals based on <strong>current market trend analysis</strong> with high potential for success. Vaulty AI will give you direct and honest feedback – if an idea lacks potential, it will tell you.
+                        </p>
+                        <ul class="mt-6 space-y-3 text-gray-300">
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0"></i><span>Ideas tailored to your profile.</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0"></i><span>Assessment of potential and complexity.</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0"></i><span>No filter: direct and honest feedback.</span></li>
+                        </ul>
+                    </div>
+                    <div class="order-1 md:order-2">
+                         <div class="card-bg p-4 rounded-2xl border border-gray-800">
+                            <img src="https://placehold.co/600x400/000000/FFFFFF?text=AI+Idea+Visualization" alt="AI Idea Generation" class="rounded-lg w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=Image+Not+Found';">
+                         </div>
+                    </div>
+                </div>
+
+                <!-- Feature 2: Market Analysis -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div>
+                         <div class="card-bg p-4 rounded-2xl border border-gray-800">
+                            <img src="https://placehold.co/600x400/000000/FFFFFF?text=Data+Analysis" alt="Market Analysis" class="rounded-lg w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=Image+Not+Found';">
+                         </div>
+                    </div>
+                    <div>
+                        <div class="inline-flex items-center gap-3">
+                            <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
+                                <i data-lucide="bar-chart-3" class="text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">In-Depth Market Analysis</h3>
+                        </div>
+                        <p class="mt-4 text-gray-400">
+                           Make decisions based on data, not feelings. Vaulty AI scans the market and prepares a comprehensive report for you. Get to know your <strong>competitors, their strengths and weaknesses</strong>, discover your ideal <strong>target audience</strong>, and determine the optimal <strong>pricing strategy</strong>. With our analysis, you'll enter the market with knowledge and confidence.
+                        </p>
+                         <ul class="mt-6 space-y-3 text-gray-300">
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0"></i><span>Competitor and SWOT analysis.</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0"></i><span>Ideal customer profiling.</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0"></i><span>Suggestions for pricing and positioning.</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Feature 3: AI Business Plan -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div class="order-2 md:order-1">
+                        <div class="inline-flex items-center gap-3">
+                            <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
+                                <i data-lucide="file-text" class="text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">Comprehensive Business Plan</h3>
+                        </div>
+                        <p class="mt-4 text-gray-400">
+                            Forget blank templates. Based on your idea and analysis, Vaulty AI creates a <strong>complete business plan</strong> – from an executive summary for investors to detailed financial projections. Choose the tone of communication (formal, motivational, friendly) and get a document ready for banks, investors, or your internal use.
+                        </p>
+                        <ul class="mt-6 space-y-3 text-gray-300">
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0"></i><span>Marketing and sales plan.</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0"></i><span>Operational plan and key milestones.</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0"></i><span>Financial projections for 3-5 years.</span></li>
+                        </ul>
+                    </div>
+                    <div class="order-1 md:order-2">
+                         <div class="card-bg p-4 rounded-2xl border border-gray-800">
+                            <img src="https://placehold.co/600x400/000000/FFFFFF?text=Plan+Generation" alt="Business Plan Generation" class="rounded-lg w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=Image+Not+Found';">
+                         </div>
+                    </div>
+                </div>
+
+                <!-- Feature 4: Brand Building -->
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                         <div class="card-bg p-4 rounded-2xl border border-gray-800">
+                            <img src="https://placehold.co/600x400/000000/FFFFFF?text=Brand+Creation" alt="Branding Tools" class="rounded-lg w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=Image+Not+Found';">
+                         </div>
+                    </div>
+                    <div>
+                        <div class="inline-flex items-center gap-3">
+                            <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
+                                <i data-lucide="gem" class="text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">Brand Building</h3>
+                        </div>
+                        <p class="mt-4 text-gray-400">
+                          Your brand is your identity. Our <strong>Name Generator</strong> will suggest unique and memorable names that are still available. The <strong>Logo Maker</strong> will create professional and modern logos that you can use immediately. Build a strong visual identity without the need for expensive designers.
+                        </p>
+                         <ul class="mt-6 space-y-3 text-gray-300">
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0"></i><span>Name suggestions based on industry and style.</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0"></i><span>Logo generation in various styles.</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0"></i><span>Export in high resolution for web and print.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Choose a plan that <span class="gradient-text">grows with you</span></h2>
+                    <p class="mt-4 max-w-xl mx-auto text-gray-400">
+                        Whether you're just starting out or scaling your business, we have the right plan for you.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-10 gap-8 items-center">
+                    <!-- Basic Plan -->
+                    <div class="lg:col-span-3 card-bg p-8 rounded-2xl border border-gray-800 h-full flex flex-col">
+                        <h3 class="text-2xl font-bold">Basic</h3>
+                        <p class="mt-2 text-gray-400">For the first steps into entrepreneurship.</p>
+                        <p class="mt-6 text-4xl font-bold">$0 <span class="text-lg font-medium text-gray-400">/month</span></p>
+                        <ul class="mt-8 space-y-4 text-gray-300 flex-grow">
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-blue-500 mr-2"></i>Basic AI analysis</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-blue-500 mr-2"></i>Idea generator (limited)</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-blue-500 mr-2"></i>Project saving</li>
+                        </ul>
+                        <a href="#" class="mt-8 block w-full text-center px-6 py-3 font-semibold rounded-lg bg-gray-800/80 hover:bg-gray-800 transition-colors">Start For Free</a>
+                    </div>
+
+                    <!-- Pro Plan (Highlighted) -->
+                    <div class="lg:col-span-4 card-bg p-8 rounded-3xl border-2 gradient-border h-full flex flex-col relative overflow-hidden">
+                        <div class="absolute top-0 right-0 m-4 px-3 py-1 text-xs font-bold text-black gradient-bg rounded-full">MOST POPULAR</div>
+                        <h3 class="text-3xl font-bold">Pro</h3>
+                        <p class="mt-2 text-gray-400">For a serious launch and growth of your business.</p>
+                        <p class="mt-6 text-5xl font-bold">$14.99 <span class="text-lg font-medium text-gray-400">/month</span></p>
+                        <ul class="mt-8 space-y-4 text-gray-300 flex-grow">
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 text-pink-500 mr-2"></i>Everything in Basic</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 text-pink-500 mr-2"></i>Advanced AI analysis</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 text-pink-500 mr-2"></i>Unlimited idea generator</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 text-pink-500 mr-2"></i>AI business plan</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 text-pink-500 mr-2"></i>Logo & Name generator</li>
+                        </ul>
+                        <a href="#" class="mt-8 block w-full text-center px-6 py-4 font-semibold rounded-lg gradient-bg hover:opacity-90 transition-opacity">Choose Pro</a>
+                    </div>
+
+                    <!-- Max/Team Plan -->
+                    <div class="lg:col-span-3 card-bg p-8 rounded-2xl border border-gray-800 h-full flex flex-col">
+                        <h3 class="text-2xl font-bold">Max & Team</h3>
+                        <p class="mt-2 text-gray-400">For complete market domination.</p>
+                        <p class="mt-6 text-4xl font-bold">$99.99+ <span class="text-lg font-medium text-gray-400">/month</span></p>
+                        <ul class="mt-8 space-y-4 text-gray-300 flex-grow">
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-blue-500 mr-2"></i>Everything in Pro</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-blue-500 mr-2"></i>AI promotion assistance</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-blue-500 mr-2"></i>Access to Promotion Page</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-blue-500 mr-2"></i>Team support (up to 5 users)</li>
+                        </ul>
+                        <a href="#" class="mt-8 block w-full text-center px-6 py-3 font-semibold rounded-lg bg-gray-800/80 hover:bg-gray-800 transition-colors">Discover Max</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo Section -->
+        <section id="demo" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Try Our AI <span class="gradient-text">in Action</span></h2>
+                    <p class="mt-4 max-w-xl mx-auto text-gray-400">
+                        Get a glimpse of Vaulty's power. Enter a passion or skill and see what business ideas our AI generates for you.
+                    </p>
+                </div>
+                <div class="max-w-2xl mx-auto card-bg p-8 rounded-2xl border border-gray-800">
+                    <form id="demo-form">
+                        <label for="passion-input" class="font-semibold">My passion/skill is...</label>
+                        <div class="mt-2 flex flex-col sm:flex-row gap-4">
+                            <input type="text" id="passion-input" placeholder="e.g., baking, crypto, cars, coding..." class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow">
+                            <button type="submit" class="px-8 py-3 font-semibold text-white rounded-lg gradient-bg hover:opacity-90 transition-opacity whitespace-nowrap">
+                                Generate Ideas
+                            </button>
+                        </div>
+                    </form>
+                    <div id="demo-results" class="mt-8 hidden">
+                        <div id="spinner-container" class="flex justify-center py-4">
+                            <div class="spinner"></div>
+                        </div>
+                        <div id="ideas-container"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Don't take our word for it. <span class="gradient-text">Listen to our users.</span></h2>
+                    <p class="mt-4 max-w-xl mx-auto text-gray-400">
+                        Entrepreneurs from various industries have already achieved outstanding results with Vaulty AI.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="card-bg p-8 rounded-2xl border border-gray-800 flex flex-col">
+                        <p class="text-gray-300 flex-grow">"I had an idea for months but didn't know where to start. Vaulty AI created a full business plan for me in one day and gave me the confidence to take the first step. Priceless!"</p>
+                        <div class="flex items-center mt-6">
+                            <img src="https://placehold.co/48x48/EC4899/FFFFFF?text=AK" alt="Ana Kovač" class="w-12 h-12 rounded-full" onerror="this.onerror=null;this.src='https://placehold.co/48x48/EC4899/FFFFFF?text=AK';">
+                            <div class="ml-4">
+                                <p class="font-bold">Ana Kovač</p>
+                                <p class="text-sm text-gray-400">Founder, Online Flower Shop</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="card-bg p-8 rounded-2xl border border-gray-800 flex flex-col">
+                        <p class="text-gray-300 flex-grow">"As a mechanic, I'm good at my job, but business is another story. Vaulty helped me with competitor analysis and pricing. My revenue increased by 30% in three months."</p>
+                        <div class="flex items-center mt-6">
+                            <img src="https://placehold.co/48x48/3B82F6/FFFFFF?text=MN" alt="Marko Novak" class="w-12 h-12 rounded-full" onerror="this.onerror=null;this.src='https.placehold.co/48x48/3B82F6/FFFFFF?text=MN';">
+                            <div class="ml-4">
+                                <p class="font-bold">Marko Novak</p>
+                                <p class="text-sm text-gray-400">Owner, Garage Repairs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="card-bg p-8 rounded-2xl border border-gray-800 flex flex-col">
+                        <p class="text-gray-300 flex-grow">"I was considering several different crypto projects. The AI analysis in Vaulty clearly showed me which one had the most potential and warned me of risks I hadn't seen myself."</p>
+                        <div class="flex items-center mt-6">
+                            <img src="https://placehold.co/48x48/FFFFFF/000000?text=LH" alt="Luka Horvat" class="w-12 h-12 rounded-full" onerror="this.onerror=null;this.src='https.placehold.co/48x48/FFFFFF/000000?text=LH';">
+                            <div class="ml-4">
+                                <p class="font-bold">Luka Horvat</p>
+                                <p class="text-sm text-gray-400">Crypto Enthusiast</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Frequently Asked <span class="gradient-text">Questions</span></h2>
+                </div>
+                <div class="space-y-4">
+                    <details class="card-bg p-6 rounded-lg border border-gray-800 cursor-pointer">
+                        <summary class="font-semibold text-lg flex justify-between items-center">
+                            Is Vaulty AI really free?
+                            <i data-lucide="chevron-down" class="transition-transform transform duration-300"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-400">Yes! Vaulty offers a free Basic plan that is great for exploring basic ideas and features. For more advanced tools and unlimited use, premium plans are available.</p>
+                    </details>
+                    <details class="card-bg p-6 rounded-lg border border-gray-800 cursor-pointer">
+                        <summary class="font-semibold text-lg flex justify-between items-center">
+                            Can I cancel my subscription at any time?
+                             <i data-lucide="chevron-down" class="transition-transform transform duration-300"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-400">Of course. You can easily cancel your subscription with one click in your account settings. You will retain access to premium features until the end of the paid period.</p>
+                    </details>
+                    <details class="card-bg p-6 rounded-lg border border-gray-800 cursor-pointer">
+                        <summary class="font-semibold text-lg flex justify-between items-center">
+                            Why do I need to sign up?
+                             <i data-lucide="chevron-down" class="transition-transform transform duration-300"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-400">Registration is required so we can securely save all your projects, business plans, and settings. This allows you to access your work anytime and from any device.</p>
+                    </details>
+                     <details class="card-bg p-6 rounded-lg border border-gray-800 cursor-pointer">
+                        <summary class="font-semibold text-lg flex justify-between items-center">
+                            How reliable is the data provided by the AI?
+                             <i data-lucide="chevron-down" class="transition-transform transform duration-300"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-400">Our AI is trained on a vast amount of data to provide you with the most accurate and relevant information possible. However, with rapidly changing data (like prices or specific regulations), it can sometimes be mistaken. Therefore, we recommend always double-checking key data yourself.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">&copy; 2024 Vaulty. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                // Only prevent default and scroll if href is not just "#"
+                if (href !== '#') {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // FAQ Accordion icon rotation
+        const detailsElements = document.querySelectorAll('details');
+        detailsElements.forEach(details => {
+            details.addEventListener('toggle', event => {
+                const icon = details.querySelector('.lucide-chevron-down');
+                if (icon) {
+                    if (details.open) {
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                }
+            });
+        });
+
+        // Interactive Demo Logic
+        const demoForm = document.getElementById('demo-form');
+        const passionInput = document.getElementById('passion-input');
+        const demoResults = document.getElementById('demo-results');
+        const spinnerContainer = document.getElementById('spinner-container');
+        const ideasContainer = document.getElementById('ideas-container');
+
+        const ideasDatabase = {
+            'crypto': [
+                { title: 'DeFi Staking Platform', description: 'Create a user-friendly platform for staking various cryptocurrencies to earn passive income.', potential: 'High' },
+                { title: 'NFT Analytics Service', description: 'A subscription service providing in-depth analytics and rarity scores for NFT collections.', potential: 'High' },
+                { title: 'Crypto Educational Hub', description: 'Build a comprehensive educational website and community for crypto beginners.', potential: 'Medium' }
+            ],
+            'baking': [
+                { title: 'Artisanal Sourdough Subscription', description: 'A weekly or bi-weekly delivery service for fresh, homemade sourdough bread and pastries.', potential: 'Medium' },
+                { title: 'Custom Cake Decorating Business', description: 'Specialize in high-end, custom-designed cakes for weddings, birthdays, and special events.', potential: 'High' },
+                { title: 'Vegan & Gluten-Free Bakery', description: 'Cater to a niche market with delicious baked goods for people with dietary restrictions.', potential: 'High' }
+            ],
+            'car': [
+                { title: 'Mobile Detailing Service', description: 'Offer premium car detailing services directly at the customer\'s home or office.', potential: 'High' },
+                { title: 'Classic Car Restoration Blog', description: 'Document and share the process of restoring classic cars, monetized through ads and affiliate links.', potential: 'Medium' },
+                { title: 'Subscription Box for Car Enthusiasts', description: 'A monthly box with car care products, accessories, and merchandise.', potential: 'Medium' }
+            ],
+            'coding': [
+                { title: 'Niche SaaS Product', description: 'Develop a Software-as-a-Service solution for a specific industry problem you know well.', potential: 'High' },
+                { title: 'Webflow/Shopify Development Agency', description: 'Focus on building high-quality websites for small businesses using popular platforms.', potential: 'High' },
+                { title: 'Coding Bootcamp for Kids', description: 'Organize after-school programs or summer camps to teach children the basics of programming.', potential: 'Medium' }
+            ],
+            'default': [
+                 { title: 'Personalized Gift Box Service', description: 'Curate and sell custom gift boxes for various occasions like birthdays, holidays, and corporate events.', potential: 'Medium' },
+                 { title: 'Local Tour Guide Service', description: 'Offer unique, themed walking or biking tours of your city, focusing on history, food, or art.', potential: 'Medium' },
+                 { title: 'Eco-Friendly Product E-commerce Store', description: 'Sell a curated selection of sustainable and zero-waste products for home and personal care.', potential: 'High' }
+            ]
+        };
+
+        demoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const userInput = passionInput.value.toLowerCase();
+            
+            demoResults.classList.remove('hidden');
+            spinnerContainer.style.display = 'flex';
+            ideasContainer.innerHTML = '';
+
+            setTimeout(() => {
+                let selectedIdeas = ideasDatabase['default'];
+                for (const key in ideasDatabase) {
+                    if (userInput.includes(key)) {
+                        selectedIdeas = ideasDatabase[key];
+                        break;
+                    }
+                }
+                
+                spinnerContainer.style.display = 'none';
+                displayIdeas(selectedIdeas);
+            }, 1500);
+        });
+
+        function displayIdeas(ideas) {
+            ideasContainer.innerHTML = ideas.map(idea => `
+                <div class="card-bg border border-gray-800 rounded-lg p-4 mb-4 transform hover:border-blue-500 transition-colors">
+                    <div class="flex justify-between items-start">
+                        <h4 class="font-bold text-lg">${idea.title}</h4>
+                        <span class="text-sm font-semibold px-3 py-1 rounded-full ${idea.potential === 'High' ? 'bg-green-500/20 text-green-400' : 'bg-yellow-500/20 text-yellow-400'}">
+                            ${idea.potential} Potential
+                        </span>
+                    </div>
+                    <p class="mt-2 text-gray-400">${idea.description}</p>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>
